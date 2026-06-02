@@ -66,7 +66,7 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 #   "gemini-1.5-flash",
 #   "yi-34b-chat-0205","yi-34b-chat-200k","yi-large","yi-medium","yi-spark","yi-large-turbo","yi-large-preview",
 #   "grok-beta",
-#   "minimax-m2.7","minimax-m2.7-highspeed","minimax-m2.5","minimax-m2.5-highspeed",
+#   "minimax-m3","minimax-m2.7","minimax-m2.7-highspeed",
 # ]
 # --- --- --- ---
 # 此外，您还可以在接入one-api/vllm/ollama/Openroute时，
@@ -430,7 +430,7 @@ ONE_API_KEY = "$API_KEY"
 ├── "Gemini"
 │   └──  GEMINI_API_KEY
 │
-├── "minimax-m2.7", "minimax-m2.7-highspeed", "minimax-m2.5", "minimax-m2.5-highspeed" MiniMax大模型
+├── "minimax-m3", "minimax-m2.7", "minimax-m2.7-highspeed" MiniMax大模型
 │   └── MINIMAX_API_KEY
 │
 └── "one-api-...(max_token=...)" 用一种更方便的方式接入one-api多模型管理界面

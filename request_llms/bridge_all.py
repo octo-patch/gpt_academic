@@ -1241,13 +1241,22 @@ if any(item in claude_models for item in AVAIL_LLM_MODELS):
         logger.error(trimmed_format_exc())
 
 # -=-=-=-=-=-=- MiniMax大模型在线API -=-=-=-=-=-=-
-minimax_models = ["minimax-m2.7", "minimax-m2.7-highspeed", "minimax-m2.5", "minimax-m2.5-highspeed"]
+minimax_models = ["minimax-m3", "minimax-m2.7", "minimax-m2.7-highspeed"]
 if any(item in minimax_models for item in AVAIL_LLM_MODELS):
     try:
         minimax_noui, minimax_ui = get_predict_function(
             api_key_conf_name="MINIMAX_API_KEY", max_output_token=4096, disable_proxy=True
         )
         model_info.update({
+            "minimax-m3":{
+                "fn_with_ui": minimax_ui,
+                "fn_without_ui": minimax_noui,
+                "endpoint": minimax_endpoint,
+                "can_multi_thread": True,
+                "max_token": 512000,
+                "tokenizer": tokenizer_gpt35,
+                "token_cnt": get_token_num_gpt35,
+            },
             "minimax-m2.7":{
                 "fn_with_ui": minimax_ui,
                 "fn_without_ui": minimax_noui,
@@ -1258,24 +1267,6 @@ if any(item in minimax_models for item in AVAIL_LLM_MODELS):
                 "token_cnt": get_token_num_gpt35,
             },
             "minimax-m2.7-highspeed":{
-                "fn_with_ui": minimax_ui,
-                "fn_without_ui": minimax_noui,
-                "endpoint": minimax_endpoint,
-                "can_multi_thread": True,
-                "max_token": 204000,
-                "tokenizer": tokenizer_gpt35,
-                "token_cnt": get_token_num_gpt35,
-            },
-            "minimax-m2.5":{
-                "fn_with_ui": minimax_ui,
-                "fn_without_ui": minimax_noui,
-                "endpoint": minimax_endpoint,
-                "can_multi_thread": True,
-                "max_token": 204000,
-                "tokenizer": tokenizer_gpt35,
-                "token_cnt": get_token_num_gpt35,
-            },
-            "minimax-m2.5-highspeed":{
                 "fn_with_ui": minimax_ui,
                 "fn_without_ui": minimax_noui,
                 "endpoint": minimax_endpoint,
